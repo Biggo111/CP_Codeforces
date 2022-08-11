@@ -1,0 +1,68 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long int
+#define MOD 1000000007
+typedef unsigned long long int ull;
+#define fastIO      ios::sync_with_stdio(0);cin.tie(0),cout.tie(0);
+ 
+int main() {
+    fastIO
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+        ll n,a,b;
+        cin>>n>>a>>b;
+        ll f = abs(a-b);
+        if(f>1 || (a+b)>n-2)
+        {
+            cout<<-1<<endl;
+        }
+        else
+        {
+            if(a>b)
+            {
+                ll x=n-a;
+                for(int i=n;i>n-a;i--)
+                {
+                    cout<<x<<" "<<i<<" ";
+                    x--;
+                }
+                for(int i=x;i>=1;i--)
+                {
+                    cout<<i<<" ";
+                }
+                cout<<endl;
+            }
+            else if(a<b)
+            {
+                ll x=b+1;
+                for(int i=1;i<=b;i++)
+                {
+                    cout<<x<<" "<<i<<" ";
+                    x++;
+                }
+                for(int i=x;i<=n;i++)
+                {
+                    cout<<i<<" ";
+                }
+                cout<<endl;
+            }
+            else
+            {
+                ll x = a+2;
+                cout<<a+1<<" ";
+                for(int i=1;i<=a;i++)
+                {
+                    cout<<x<<" "<<i<<" ";
+                    x++;
+                }
+                for(int i=x;i<=n;i++)
+                {
+                    cout<<i<<" ";
+                }
+                cout<<endl;
+            }
+        }
+    }
+}
