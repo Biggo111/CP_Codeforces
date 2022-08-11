@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long int
+#define MOD 1000000007
+typedef unsigned long long int ull;
+#define fastIO      ios::sync_with_stdio(0);cin.tie(0),cout.tie(0);
+ 
+int main() {
+    fastIO
+    //ll t;
+    //cin>>t;
+    //while(t--)
+    //{
+        ll l,r;
+        cin>>l>>r;
+        ll g = (r-l+1)/2;
+        cout<<"YES"<<endl;
+        ll f=r;
+        while(g--)
+        {
+            cout<<f<<" "<<f-1<<endl;
+            f-=2;
+        }
+    //}
+}
