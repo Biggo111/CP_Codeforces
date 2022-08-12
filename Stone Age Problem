@@ -1,0 +1,50 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long int
+#define MOD 1000000007
+typedef unsigned long long int ull;
+#define fastIO      ios::sync_with_stdio(0);cin.tie(0),cout.tie(0);
+
+int main() {
+    fastIO
+    //ll t;
+    //cin>>t;
+    //while(t--)
+    //{
+        ll n,q;
+        cin>>n>>q;
+        map<ll,ll>mp;
+        ll sum=0;
+        for(int i=1;i<=n;i++)
+        {
+            ll z;
+            cin>>z;
+            mp[i]=z;
+            sum+=z;
+        }
+        ll df;
+        while(q--)
+        {
+            ll a;
+            cin>>a;
+            if(a==1)
+            {
+                ll pos,val;
+                cin>>pos>>val;
+                if(!mp[pos])mp[pos]=df;
+                sum-=mp[pos];
+                sum+=val;
+                mp[pos]=val;
+            }
+            else
+            {
+                ll val2;
+                cin>>val2;
+                mp.clear();
+                sum=val2*n;
+                df=val2;
+            }
+            cout<<sum<<endl;
+        }
+    //}
+}
