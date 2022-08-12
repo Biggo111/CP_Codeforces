@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long int
+#define MOD 1000000007
+typedef unsigned long long int ull;
+#define fastIO      ios::sync_with_stdio(0);cin.tie(0),cout.tie(0);
+
+int main() {
+    fastIO
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+        ll n;
+        cin>>n;
+        vector<ll>v(n);
+        for(int i=0;i<n;i++)
+        {
+            cin>>v[i];
+        }
+        sort(v.begin(),v.end());
+        ll ans=0;
+        ll a=v[0];
+        ll b=v[1];
+        ll z = abs(v[0]-v[1]);
+        ll mn=z;
+        ll i=1;
+        while(i<n && mn>=v[i] && z>=v[i])
+        {
+            i++;
+            ans++;
+            a=b;
+            b=v[i];
+            z=abs(a-b);
+            mn=min(mn,z);
+        }
+        cout<<ans+1<<endl;
+    }
+}
