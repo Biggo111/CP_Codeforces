@@ -1,0 +1,68 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long int
+#define MOD 1000000007
+typedef unsigned long long int ull;
+#define fastIO      ios::sync_with_stdio(0);cin.tie(0),cout.tie(0);
+int main() {
+    fastIO
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+        ll n,m;
+        cin>>n>>m;
+        char ch[n][m];
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<m;j++)
+            {
+                cin>>ch[i][j];
+            }
+        }
+        ll pos=0,pos2=0;
+        ll flag=0;
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<m;j++)
+            {
+                if(ch[i][j]=='R')
+                {
+                    pos = i+1;
+                    pos2 = j+1;
+                    flag=1;
+                    break;
+                }
+            }
+            if(flag)break;
+        }
+        ll up=pos-1;
+        ll right=pos2-1;
+        ll g=0,h=0,flag2=0;
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<m;j++)
+            {
+                if(ch[i][j]=='R')
+                {
+                    g = i+1;
+                    h = j+1;
+                    if(g<=up || h<=right)
+                    {
+                        flag2=1;
+                        break;
+                    }
+                }
+            }
+            if(flag2)break;
+        }
+        if(flag2)
+        {
+            cout<<"NO"<<endl;
+        }
+        else
+        {
+            cout<<"YES"<<endl;
+        }
+    }
+}
