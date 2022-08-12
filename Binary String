@@ -1,0 +1,67 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long int
+#define MOD 1000000007
+typedef unsigned long long int ull;
+#define fastIO      ios::sync_with_stdio(0);cin.tie(0),cout.tie(0);
+vector<ll>zero_pos;
+ll n;
+
+bool possible(ll k)
+{
+    if(zero_pos.size()-2<=k)return true;
+    for(int i=0;i<=zero_pos.size()-k-2;i++)
+    {
+        ll L = zero_pos[i]+1, R = zero_pos[i+k+1]-1;
+        ll one_inside_range;
+        if(L>R)
+        {
+            one_inside_range=0;
+        }
+        else
+        {
+            one_inside_range=((R-L+1)-k);
+        }
+        ll total_ones=n-(zero_pos.size()-2);
+        ll one_removed=(total_ones-one_inside_range);
+        if(one_removed<=k)return true;
+    }
+    return false;
+}
+int main() {
+    fastIO
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+        string s;
+        cin>>s;
+        n = s.size();
+        zero_pos.clear();
+        zero_pos.push_back(-1);
+        for(int i=0;i<n;i++)
+        {
+            if(s[i]=='0')
+            {
+                zero_pos.push_back(i);
+            }
+        }
+        zero_pos.push_back(n);
+        ll ans;
+        ll low=0,high=n;
+        while(low<=high)
+        {
+            ll mid=low+(high-low)/2;
+            if(possible(mid))
+            {
+                ans=mid;
+                high=mid-1;
+            }
+            else
+            {
+                low = mid+1;
+            }
+        }
+        cout<<ans<<endl;
+    }
+}
