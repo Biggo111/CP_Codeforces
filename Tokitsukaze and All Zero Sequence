@@ -1,0 +1,43 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long int
+#define MOD 1000000007
+typedef unsigned long long int ull;
+ 
+int main() {
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+        ll n;
+        cin>>n;
+        vector<ll>v(n);
+        ll z = 0;
+        for(int i=0;i<n;i++)
+        {
+            cin>>v[i];
+            if(v[i]==0)z++;
+        }
+        sort(v.begin(),v.end());
+        ll p=0;
+        for(int i=0;i<n-1;i++)
+        {
+            if(v[i]==v[i+1] && v[i]!=0)
+            {
+                p++;
+            }
+        }
+        if(z>0)
+        {
+            cout<<n-z<<endl;
+        }
+        else if(p>0)
+        {
+            cout<<n<<endl;
+        }
+        else
+        {
+            cout<<n+1<<endl;
+        }
+    }
+}
