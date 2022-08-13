@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long int
+#define MOD 1000000007
+typedef unsigned long long int ull;
+#define fastIO      ios::sync_with_stdio(0);cin.tie(0),cout.tie(0);
+int main() {
+    fastIO
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+        string s;
+        cin>>s;
+        ll n=s.size();
+        if(count(s.begin(),s.end(),s[0])==n)
+        {
+            cout<<"YES"<<endl;
+            continue;
+        }
+        set<char>st;
+        ll mn=INT_MAX;
+        map<char,ll>last;
+        for(char i='a';i<='z';i++)
+        {
+            last[i]=-1;
+        }
+        for(int i=0;i<n;i++)
+        {
+            if(last[s[i]]==-1)
+            {
+                last[s[i]]=i;
+            }
+            else
+            {
+                mn=min(mn,i-last[s[i]]-1);
+                last[s[i]]=i;
+            }
+            st.insert(s[i]);
+        }
+        if(mn<n && mn+1<st.size())
+        {
+            cout<<"NO"<<endl;
+        }
+        else cout<<"YES"<<endl;
+    }
+    return 0;
+}
