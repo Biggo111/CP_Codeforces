@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long int
+#define MOD 1000000007
+typedef unsigned long long int ull;
+ 
+vector<string>v;
+void check()
+{
+    string c="";
+    for(char i='a';i<='z';i++)
+    {
+        for(char j='a';j<='z';j++)
+        {
+            if(i!=j)
+            {
+                c+=i;
+                c+=j;
+                v.push_back(c);
+                c.clear();
+            }
+        }
+    }
+}
+int main() {
+    check();
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+        string s;
+        cin>>s;
+        for(ll i=0;i<v.size();i++)
+        {
+            if(s==v[i])
+            {
+                cout<<i+1<<endl;
+                break;
+            }
+        }
+    }
+}
