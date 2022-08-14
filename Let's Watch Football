@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long int
+#define MOD 1000000007
+typedef unsigned long long int ull;
+ 
+int main() {
+    //ll t;
+    //cin>>t;
+    //while(t--)
+    //{
+        ll a,b,c;
+        cin>>a>>b>>c;
+        ll f = a*c;
+        ll g = b*c;
+        ll h = f-g;
+        ll z = h/b;
+        if(h%b!=0)
+        {
+            z++;
+        }
+        cout<<z<<endl;
+    //}
+}
