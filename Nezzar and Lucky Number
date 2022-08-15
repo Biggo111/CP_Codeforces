@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long int
+
+int main() {
+    
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+        ll q,d;
+        cin>>q>>d;
+        while(q--)
+        {
+            ll n;
+            cin>>n;
+            ll flag=0;
+            if(n>=d*10)
+            {
+                flag=1;
+            }
+            if(flag)
+            {
+                cout<<"YES"<<endl;
+            }
+            else
+            {
+                while(n>=d)
+                {
+                    if(n%d==0)
+                    {
+                        flag=1;
+                        break;
+                    }
+                    n-=10;
+                }
+                if(flag)
+                {
+                    cout<<"YES"<<endl;
+                }
+                else
+                {
+                    cout<<"NO"<<endl;
+                }
+            }
+        }
+    }
+}
