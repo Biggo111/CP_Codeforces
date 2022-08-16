@@ -1,0 +1,62 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long int
+ 
+int main() {
+    
+    //ll t;
+    //cin>>t;
+    //while(t--)
+    //{
+        ll n,m;
+        cin>>n>>m;
+        ll f=n*m;
+        float k = (float)n/f;
+        float g = (float)m/f;
+        if(n==1 && m==1)
+        {
+            cout<<"="<<endl;
+            return 0;
+        }
+        if(n==1)
+        {
+            cout<<"<"<<endl;
+            return 0;
+        }
+        if(m==1)
+        {
+            cout<<">"<<endl;
+            return 0;
+        }
+        if(n+m==6)
+        {
+            cout<<"="<<endl;
+            return 0;
+        }
+        if(n==3)
+        {
+            cout<<">"<<endl;
+            return 0;
+        }
+        if(m==3)
+        {
+            cout<<"<"<<endl;
+            return 0;
+        }
+        if(n>m)
+        {
+            cout<<"<"<<endl;
+            return 0;
+        }
+        if(n<m)
+        {
+            cout<<">"<<endl;
+            return 0;
+        }
+        if(n==m)
+        {
+            cout<<"="<<endl;
+            return 0;
+        }
+    //}
+}
