@@ -1,0 +1,53 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long int
+ 
+int main() {
+    
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+        ll n,m;
+        cin>>n>>m;
+        ll mn=min(n,m);
+        //ll mx=max(n,m);
+        if(n==1 && m==1)
+        {
+            cout<<0<<endl;
+            continue;
+        }
+        if((n==1 && m>2) || (n>2 && m==1))
+        {
+            cout<<-1<<endl;
+            continue;
+        }
+        ll ans=(mn*2)-2;
+        if(mn==m)
+        {
+            ll gap=n-m;
+            if(gap%2==0)
+            {
+                ans+=(gap*2);
+            }
+            else
+            {
+                ans+=((gap*2)-1);
+            }
+            cout<<ans<<endl;
+        }
+        else if(mn==n)
+        {
+            ll gap=m-n;
+            if(gap%2==0)
+            {
+                ans+=(gap*2);
+            }
+            else
+            {
+                ans+=((gap*2)-1);
+            }
+            cout<<ans<<endl;
+        }
+    }
+}
