@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long int
+
+int main() {
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n,r,b;
+        cin>>n>>r>>b;
+        string s="";
+        int f=r/(b+1);
+        int g=r%(b+1);
+        for(int i=0;i<(b+1-g);i++)
+        {
+            string ss(f,'R');
+            s+=ss;
+            s+='B';
+        }
+        for(int i=0;i<g;i++)
+        {
+            string ss(f+1,'R');
+            s+=ss;
+            s+='B';
+        }
+        s.pop_back();
+        cout<<s<<endl;
+    }
+}
