@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long int
+int main() {
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        ll n;
+        cin>>n;
+        ll a[n];
+        ll pos[n+1]={0};
+        for(int i=0;i<n;i++)
+        {
+            cin>>a[i];
+            pos[a[i]]=i;
+        }
+        ll start=0,end=n;
+        for(int i=n;i>0;i--)
+        {
+            start=pos[i];
+            if(end>start)
+            {
+                for(int j=start;j<end;j++)
+                {
+                    cout<<a[j]<<" ";
+                }
+                end=start;
+            }
+        }
+        cout<<endl;
+    }
+}
